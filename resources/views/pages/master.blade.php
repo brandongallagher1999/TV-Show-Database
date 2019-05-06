@@ -13,6 +13,7 @@
         
         <a class="btn btn-primary" href="{{ url('special')}}" role="button">Special</a>
 
+        @section('content')
         <div class="container">
             <h4>
                 <div class="row">
@@ -31,14 +32,47 @@
                     <div class="col-sm">
                         Photo
                     </div>
-                </div>
+                    <div class="col-sm">
+                        Options
+                    </div>
+                </div>           
+                @if(count($movies) > 0)
+                    @foreach($movies as $movie)
+                    <div class="row">
+                        <div class="col-sm">
+                            <small>{{$movie->tvName}}</small>
+                        </div>
+                        <div class="col-sm">
+                            <small>{{$movie->episode}}</small>
+                        </div>
+                        <div class="col-sm">
+                            <small>{{$movie->season}}</small>
+                        </div>
+                        <div class="col-sm">
+                            <small>{{$movie->quote}}</small>
+                        </div>
+                        <div class="col-sm">
+                            Photo
+                        </div>
+                        <div class="col-sm">
+                            <a href="" class="btn btn-primary" role="button">Delete</a>
+                            <a href="" class="btn btn-primary" role="button">Update</a>
+                        </div>
+                    </div>
+                    @endforeach
+                @else
+                    <p>Nothing found</p>
+                @endif
+
+                @endsection
                 <div class="row">
                     <div class="col-sm">
-                        <a href="#" class="btn btn-primary">Add New</a>
+                    <a href="" class="btn btn-primary" role="button">Add New</a>
                     </div>
                 </div>
             </h4>
         </div>
+        @yield('content')
 
 
 

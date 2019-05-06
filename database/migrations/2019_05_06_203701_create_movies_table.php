@@ -15,6 +15,10 @@ class CreateMoviesTable extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('tvName');
+            $table->string("episode");
+            $table->string("season");
+            $table->string("quote");
             $table->timestamps();
         });
     }
