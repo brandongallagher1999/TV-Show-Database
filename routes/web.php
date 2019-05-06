@@ -12,3 +12,6 @@ Route::get('/', 'HomeController@home'); //Calls the HomeControllers 'home' funct
 Route::get('special', 'HomeController@special'); //Requests special page.
 
 Route::resource('movies', 'MovieController');
+
+Route::resource('delete', 'MovieController@destroy');
+
